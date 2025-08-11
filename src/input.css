@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  /*
+   * The key is the font name from Google with spaces ("Libertinus Sans").
+   * The utility class name comes from the variable name (`--font-family-libertinus`).
+   */
+  --font-family-libertinus: "Libertinus Sans", sans-serif;
+}
