@@ -2,6 +2,7 @@ let menubtn = document.querySelector(".menu");
 let navlink = document.querySelector(".navlinks");
 let navlinks = document.querySelectorAll(".navlinks a");
 
+
 menubtn.addEventListener('click', () => {
     navlink.classList.remove('hidden');
     navlink.classList.toggle('mobile-screen');
