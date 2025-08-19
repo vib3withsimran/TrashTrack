@@ -7,6 +7,8 @@ menubtn.addEventListener('click', () => {
     navlink.classList.remove('hidden');
     navlink.classList.toggle('mobile-screen');
     menubtn.classList.toggle('active');
+    navlink.classList.toggle('flex');
+    navlink.classList.toggle('flex-col');
 })
 
 // Close menu when a nav link is clicked
@@ -15,14 +17,15 @@ navlinks.forEach(link => {
         navlink.classList.toggle('hidden');
         navlink.classList.remove('mobile-screen');
         menubtn.classList.remove('active');
-    });
-});
-function showFlash(message, type = "success") {
-    const flash = document.createElement("div");
-    flash.className = `flash ${type}`;
-    flash.textContent = message;
-    document.body.appendChild(flash);
-    setTimeout(() => flash.remove(), 3000);
-}
+    })
+  });
 
+
+ var typed = new Typed("#typing", {
+    strings: [" Trace. Track. Transform."
+    ],
+    typeSpeed: 70,
+    backSpeed: 40,
+    loop: true
+  });
 
