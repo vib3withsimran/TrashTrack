@@ -17,3 +17,12 @@ navlinks.forEach(link => {
         menubtn.classList.remove('active');
     });
 });
+function showFlash(message, type = "success") {
+    const flash = document.createElement("div");
+    flash.className = `flash ${type}`;
+    flash.textContent = message;
+    document.body.appendChild(flash);
+    setTimeout(() => flash.remove(), 3000);
+}
+
+

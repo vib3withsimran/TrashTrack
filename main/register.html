@@ -20,21 +20,21 @@
         <div id="Register" class="hidden md:flex"> 
             <div class="grid items-center text-center justify-center">
                 <div id="Register-box" class="w-[420px] h-fit mt-[120px] text-shadow-black border-2 border-[rgba(255,255,255,0.4)] border-solid backdrop-blur-2xl shadow-xl/35 rounded-2xl transition-opacity ease-in-out p-5">
-                    <form action="">
+                    <form  id="registerForm">
                         <h1 class="text-2xl text-center font-bold">Register</h1>
                         <div class="input-box relative w-[350px] h-[50px] mt-7 mb-7 pl-4">
-                            <input placeholder="Username" type="text" class="w-[350px] h-full border-2 border-[rgba(255,255,255,0.5)] active:shadow-2xl rounded-3xl text-md pt-5 pl-11 pb-5 pr-5" required> 
+                            <input placeholder="Username"id="regUsername" type="text" class="w-[350px] h-full border-2 border-[rgba(255,255,255,0.5)] active:shadow-2xl rounded-3xl text-md pt-5 pl-11 pb-5 pr-5" required> 
                             <i class="fa-solid fa-user absolute right-3 top-[35%] text-xl"></i>               
                         </div>
                         <div class="input-box relative w-[350px] h-[50px] mt-7 mb-7 pl-4">
-                            <input placeholder="Email" type="email" class="w-[350px] h-full border-2 active:shadow-2xl border-[rgba(255,255,255,0.5)] rounded-3xl text-md pt-5 pl-11 pb-5 pr-5" required> 
+                            <input placeholder="Email"id="regEmail" type="email" class="w-[350px] h-full border-2 active:shadow-2xl border-[rgba(255,255,255,0.5)] rounded-3xl text-md pt-5 pl-11 pb-5 pr-5" required> 
                             <i class="fa-solid fa-user absolute right-3 top-[35%] text-xl"></i>               
                         </div>
                         <div class="input-box relative w-[350px] h-[50px] mt-7 mb-7 pl-4">
-                            <input placeholder="Password" type="text" required class="w-[350px] h-full border-2 active:shadow-2xl border-[rgba(255,255,255,0.5)] rounded-3xl text-md pt-4 pl-11 pb-4 pr-5">
+                            <input placeholder="Password"id="regPassword" type="password" required class="w-[350px] h-full border-2 active:shadow-2xl border-[rgba(255,255,255,0.5)] rounded-3xl text-md pt-4 pl-11 pb-4 pr-5">
                             <i class="fa-solid fa-lock absolute right-3 top-[35%] text-xl"></i>
                         </div>
-                        <button type="submit" class="btn w-[350px] h-[45px] border rounded-2xl shadow-xl cursor-pointer text-xl text-[#333] font-semibold bg-[rgba(255,255,255,0.9)]">Login</button>
+                        <button type="submit" class="btn w-[350px] h-[45px] border rounded-2xl shadow-xl cursor-pointer text-xl text-[#333] font-semibold bg-[rgba(255,255,255,0.9)]">Register</button>
                         <div class="register-link text-md text-center mt-4 flex mb-4 flex-row justify-center">
                             <p>Already have account?</p> <a class="pl-[10px] hover:underline" href="./login.html">Login</a>
                         </div>
@@ -43,6 +43,22 @@
             </div>
         </div>
     </section>
-    
+    <script>
+        document.querySelector("#registerForm")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const username = document.querySelector("#regUsername").value.trim();
+    const email = document.querySelector("#regEmail").value.trim();
+    const password = document.querySelector("#regPassword").value;
+
+    const res = await fetch("http://localhost:5000/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, password })
+    });
+    const data = await res.json();
+    if (res.ok) alert(data.message);
+    else alert(data.error || 'Error', "error");
+  });
+    </script>
 </body>
 </html>
