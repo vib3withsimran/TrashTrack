@@ -17,8 +17,9 @@ navlinks.forEach(link => {
         navlink.classList.toggle('hidden');
         navlink.classList.remove('mobile-screen');
         menubtn.classList.remove('active');
-    });
-});
+    })
+  });
+
 
  var typed = new Typed("#typing", {
     strings: [" Trace. Track. Transform."
@@ -27,3 +28,4 @@ navlinks.forEach(link => {
     backSpeed: 40,
     loop: true
   });
+
