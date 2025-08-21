@@ -27,3 +27,4 @@ navlinks.forEach(link => {
     backSpeed: 40,
     loop: true
   });
+
