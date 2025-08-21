@@ -33,9 +33,157 @@
 
     <hr class="border-2 border-[rgba(0,0,0,0.1)]">
 
-    <main>
+    <main class="flex flex-row flex-wrap justify-evenly items-center p-4 text-xl ">
+          <!-- State Dropdown -->
+        <div class="state p-2 ">
+            <label for="stateDropdown">State:</label>
+            <select required id="stateDropdown" class="border-2 border-[rgba(0,0,0,0.1)] rounded-lg mb-4">
+                <option value="">Select State</option>
+            </select>
+        </div>
         
+
+        <div class="district">
+            <label for="districtDropdown">District/City:</label>
+            <select required id="districtDropdown" class="border-2 border-[rgba(0,0,0,0.1)] rounded-lg mb-4">
+                <option value="">Select District</option>
+            </select>
+        </div>
+        
+        <div class="waste">
+            <label for="wasteDropdown">Waste Type:</label>
+            <select required id="wasteDropdown" class="border-2 border-[rgba(0,0,0,0.1)] rounded-lg mb-4">
+                <option value="">Select Waste Type</option>
+                <option value="organic">Organic Waste</option>
+                <option value="plastic">Plastic Waste</option>
+                <option value="ewaste">E-Waste</option>
+                <option value="paper">Paper Waste</option>
+                <option value="glass">Glass Waste</option>
+            </select>
+        </div>
+        <!-- Waste Dropdown -->
     </main>
-    <script src="./app.js"></script>
+
+    <div class="btn text-center">
+        <button type="submit" id="submit-btn" class="cursor-pointer pt-2 pb-2 pl-10 pr-10 bg-yellow-400 text-amber-50 rounded-xl border-[rgba(0,0,0,0.4)] border-1 shadow-2xl">Submit</button>
+    </div>
+
+    <div class="info m-5 text-xl/snug text-left hidden">
+        <section class="waste-disposal">
+            <h2 class="text-center font-semibold text-xl">♻️ Waste Disposal & Recycling Options</h2>
+
+            <div class="offline-centers m-4">
+                <h3 class="text-2xl/snug text-center">Offline Centers</h3>
+                <div class="m-7 flex-wrap">
+                    <p class="text-[22px]"><strong>Nationwide Waste Management Services Pvt. Ltd.</strong></p>
+                <p>📍 A-36, Mehtab House, Mohan Co-operative Industrial Estate,<br>
+                Mathura Road, New Delhi – 110044</p>
+                <p>📞 +91 11416 79330</p>
+                <p>🌐 <a class="underline hover:text-blue-600" href="https://www.nwms.co.in" target="_blank"> www.nwms.co.in</a></p>
+                
+                </div>
+                <p class="text-[22px] mt-6 mb-7">👉 For more centers all over India, visit: 
+                <a href="https://www.enfplastic.com/directory/mrf/India" target="_blank" class="underline hover:text-blue-600">ENF Plastic Directory</a>
+                </p>
+            </div>
+
+            <div class="online-services mt-8">
+                <h3 class="text-2xl/snug text-center">Online Recycling Services</h3>
+                <div class="m-5">
+                    <ul class="ml-5">
+                        <li>🌐 <a class="hover:underline hover:text-blue-600" href="https://scrapuncle.com/" target="_blank">ScrapUncle</a></li>
+                        <li>🌐 <a class="hover:underline hover:text-blue-600" href="https://dumpitindia.com/" target="_blank">DumpIt India</a></li>
+                        <li>🌐 <a class="hover:underline hover:text-blue-600" href="https://www.kabadiwalaonline.com/" target="_blank">Kabadiwala Online</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+
+            <div class="diy-ideas mt-8">
+                <h3 class="text-center text-2xl/snug">DIY Plastic Reuse Ideas</h3>
+                <div class=" m-5">
+                    <div class="m-5 ">
+                        <p><strong>1. Plastic Bottles → Planters 🌱</strong><br>
+                        Cut bottles in half and use them as planters for herbs or flowers.<br>
+                        Great for balcony gardens.</p>
+                    </div>
+                    <div class="m-5">
+                        <p><strong>2. Plastic Jars/Containers → Storage Boxes 📦</strong><br>
+                        Reuse jars for stationery, grains, nuts, or screws.<br>
+                        Keeps things organized without buying new boxes.</p>
+                    </div>
+                    
+                    
+                </div>
+                
+            </div>
+            </section>
+
+    </div>
+    
+
+
+    <script>
+    let btn = document.querySelector("#submit-btn");
+    let info = document.querySelector(".info");
+    btn.addEventListener('click', () => {
+        info.classList.remove('hidden');
+    });
+
+    const statesData = {
+      "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur"],
+      "Arunachal Pradesh": ["Itanagar", "Tawang", "Pasighat"],
+      "Assam": ["Guwahati", "Dibrugarh", "Silchar"],
+      "Bihar": ["Patna", "Gaya", "Bhagalpur"],
+      "Chhattisgarh": ["Raipur", "Bilaspur", "Durg"],
+      "Goa": ["North Goa", "South Goa"],
+      "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot"],
+      "Haryana": ["Gurgaon", "Faridabad", "Panipat"],
+      "Himachal Pradesh": ["Shimla", "Kullu", "Dharamshala"],
+      "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad"],
+      "Karnataka": ["Bengaluru", "Mysuru", "Mangaluru"],
+      "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode"],
+      "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur"],
+      "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik"],
+      "Manipur": ["Imphal", "Thoubal"],
+      "Meghalaya": ["Shillong", "Tura"],
+      "Mizoram": ["Aizawl", "Lunglei"],
+      "Nagaland": ["Kohima", "Dimapur"],
+      "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela"],
+      "Punjab": ["Amritsar", "Ludhiana", "Jalandhar"],
+      "Rajasthan": ["Jaipur", "Udaipur", "Jodhpur", "Kota"],
+      "Sikkim": ["Gangtok", "Namchi"],
+      "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli"],
+      "Telangana": ["Hyderabad", "Warangal", "Nizamabad"],
+      "Tripura": ["Agartala", "Udaipur"],
+      "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra"],
+      "Uttarakhand": ["Dehradun", "Haridwar", "Nainital"],
+      "West Bengal": ["Kolkata", "Siliguri", "Howrah"],
+      "Delhi": ["North Delhi", "South Delhi", "East Delhi", "West Delhi", "Central Delhi"]
+    };
+
+    const stateDropdown = document.getElementById("stateDropdown");
+    const districtDropdown = document.getElementById("districtDropdown");
+
+    // Populate State Dropdown
+    Object.keys(statesData).forEach(state => {
+      const option = document.createElement("option");
+      option.value = state;
+      option.textContent = state;
+      stateDropdown.appendChild(option);
+    });
+
+    // When state changes → load districts
+    stateDropdown.addEventListener("change", function () {
+      districtDropdown.innerHTML = "<option value=''>Select District</option>";
+      const districts = statesData[this.value] || [];
+      districts.forEach(d => {
+        const opt = document.createElement("option");
+        opt.value = d;
+        opt.textContent = d;
+        districtDropdown.appendChild(opt);
+      });
+    });
+  </script>
 </body>
 </html>
