@@ -29,3 +29,4 @@ navlinks.forEach(link => {
     loop: true
   });
 
+7
