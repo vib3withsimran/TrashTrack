@@ -1,0 +1,70 @@
+[
+  {
+    "district": "North Delhi",
+    "wasteType": "Plastic Waste",
+    "centers": [
+      {
+        "Name": "Crescent Polymers",
+        "address": "Bawana Industrial Area, Delhi",
+        "website": "http://www.crescentplasticindustries.com",
+        "contact": "9871757580"
+      },
+            {
+                "Name": "Parkash Plastic",
+                "address": "Bawana Industrial Area, Delhi",
+                "website": "https://www.parkashplastic.in/",
+                "contact": "08048958147"
+            }
+        ]
+    },
+    {
+        "district": "North Delhi",
+        "wasteType": "Organic Waste",
+        "centers": [
+            {
+                "Name": "NDMC Micro-MRF (Major Dhyanchand Stadium)",
+                "address": "Connaught Place area",
+                "website": "https://timesofindia.indiatimes.com",
+                "contact": null
+            }
+        ]
+    },
+    {
+        "district": "North Delhi",
+        "wasteType": "Paper Waste",
+        "centers": [
+            {
+                "Name": "JAAGRUTI Waste Paper Recycling Services",
+                "address": " F-3, Shopping Centre, Mayapuri Chowk Flyover, Mansarover Garden, New Delhi, Delhi 110015",
+                "website": "https://we-recycle.org/",
+                "contact": "98101 91625"
+            },
+            {
+                "Name": "Pom Pom Recycling",
+                "address": "Dilshad District Centre, Old Seemapuri, Delhi",
+                "website": "https://lbb.in/delhi/pom-pom-recycling/",
+                "contact": null
+            }
+        ]
+    },
+    {
+        "district": "North Delhi",
+        "wasteType": "Glass Waste",
+        "centers": []
+    },
+    {
+        "district": "North Delhi",
+        "wasteType": "Metal Waste",
+        "centers": [
+            {
+                "Name": "Attero Recycling Pvt Ltd",
+                "address": "Kirti Nagar, Delhi",
+                "website": "https://www.attero.in/",
+                "contact": ""
+            }
+            
+
+        ]
+
+    }
+]

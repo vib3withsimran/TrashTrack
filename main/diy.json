@@ -1,0 +1,42 @@
+[
+  {
+    "wasteType": "Organic Waste",
+    "tips": [
+      "Compost kitchen waste to make natural fertilizer",
+      "Use wet waste in home gardening",
+      "Avoid mixing organic with plastic waste"
+    ]
+  },
+  {
+    "wasteType": "Plastic Waste",
+    "tips": [
+      "Reuse bottles and containers",
+      "Donate plastic bags to recyclers",
+      "Avoid single-use plastics"
+    ]
+  },
+  {
+    "wasteType": "E-Waste",
+    "tips": [
+      "Do not throw electronics with household waste",
+      "Donate working devices to NGOs",
+      "Use certified e-waste recycling centers"
+    ]
+  },
+  {
+    "wasteType": "Metal Waste",
+    "tips": [
+      "Sell scrap metal to kabadiwalas",
+      "Repurpose metal containers for storage",
+      "Do not mix metals with organic waste"
+    ]
+  },
+  {
+    "wasteType": "Paper Waste",
+    "tips": [
+      "Recycle newspapers and old books",
+      "Use both sides of paper before disposal",
+      "Avoid plastic-coated paper products"
+    ]
+  }
+]

@@ -54,11 +54,11 @@
             <label for="wasteDropdown">Waste Type:</label>
             <select required id="wasteDropdown" class="border-2 border-[rgba(0,0,0,0.1)] rounded-lg mb-4">
                 <option value="">Select Waste Type</option>
-                <option value="organic">Organic Waste</option>
-                <option value="plastic">Plastic Waste</option>
-                <option value="ewaste">E-Waste</option>
-                <option value="paper">Paper Waste</option>
-                <option value="glass">Glass Waste</option>
+                <option value="Organic Waste">Organic Waste</option>
+                <option value="Plastic Waste">Plastic Waste</option>
+                <option value="E-Waste">E-Waste</option>
+                <option value="Paper Waste">Paper Waste</option>
+                <option value="Glass Waste">Glass Waste</option>
             </select>
         </div>
         <!-- Waste Dropdown -->
@@ -67,67 +67,15 @@
     <div class="btn text-center">
         <button type="submit" id="submit-btn" class="cursor-pointer pt-2 pb-2 pl-10 pr-10 bg-yellow-400 text-amber-50 rounded-xl border-[rgba(0,0,0,0.4)] border-1 shadow-2xl">Submit</button>
     </div>
-
-    <div class="info m-5 text-xl/snug text-left hidden">
-        <section class="waste-disposal">
-            <h2 class="text-center font-semibold text-xl">♻️ Waste Disposal & Recycling Options</h2>
-
-            <div class="offline-centers m-4">
-                <h3 class="text-2xl/snug text-center">Offline Centers</h3>
-                <div class="m-7 flex-wrap">
-                    <p class="text-[22px]"><strong>Nationwide Waste Management Services Pvt. Ltd.</strong></p>
-                <p>📍 A-36, Mehtab House, Mohan Co-operative Industrial Estate,<br>
-                Mathura Road, New Delhi – 110044</p>
-                <p>📞 +91 11416 79330</p>
-                <p>🌐 <a class="underline hover:text-blue-600" href="https://www.nwms.co.in" target="_blank"> www.nwms.co.in</a></p>
+<div id="results" class="mt-6"></div>   
                 
-                </div>
-                <p class="text-[22px] mt-6 mb-7">👉 For more centers all over India, visit: 
-                <a href="https://www.enfplastic.com/directory/mrf/India" target="_blank" class="underline hover:text-blue-600">ENF Plastic Directory</a>
-                </p>
-            </div>
-
-            <div class="online-services mt-8">
-                <h3 class="text-2xl/snug text-center">Online Recycling Services</h3>
-                <div class="m-5">
-                    <ul class="ml-5">
-                        <li>🌐 <a class="hover:underline hover:text-blue-600" href="https://scrapuncle.com/" target="_blank">ScrapUncle</a></li>
-                        <li>🌐 <a class="hover:underline hover:text-blue-600" href="https://dumpitindia.com/" target="_blank">DumpIt India</a></li>
-                        <li>🌐 <a class="hover:underline hover:text-blue-600" href="https://www.kabadiwalaonline.com/" target="_blank">Kabadiwala Online</a></li>
-                    </ul>
-                </div>
-                
-            </div>
-
-            <div class="diy-ideas mt-8">
-                <h3 class="text-center text-2xl/snug">DIY Plastic Reuse Ideas</h3>
-                <div class=" m-5">
-                    <div class="m-5 ">
-                        <p><strong>1. Plastic Bottles → Planters 🌱</strong><br>
-                        Cut bottles in half and use them as planters for herbs or flowers.<br>
-                        Great for balcony gardens.</p>
-                    </div>
-                    <div class="m-5">
-                        <p><strong>2. Plastic Jars/Containers → Storage Boxes 📦</strong><br>
-                        Reuse jars for stationery, grains, nuts, or screws.<br>
-                        Keeps things organized without buying new boxes.</p>
-                    </div>
-                    
-                    
-                </div>
-                
-            </div>
-            </section>
-    </div>
+            
+        </div>
 
 
-    <scrept src="./app.js"></script>
+    <script src="./app.js"></script>
     <script>
-    let btn = document.querySelector("#submit-btn");
-    let info = document.querySelector(".info");
-    btn.addEventListener('click', () => {
-        info.classList.remove('hidden');
-    });
+    
 
     const statesData = {
       "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur"],
@@ -183,6 +131,86 @@
         districtDropdown.appendChild(opt);
       });
     });
+    const wasteDropdown = document.getElementById("wasteDropdown");
+  const submitBtn = document.getElementById("submit-btn");
+
+  submitBtn.addEventListener("click", async () => {
+    const state = stateDropdown.value;
+    const district = districtDropdown.value;
+    const wasteType = wasteDropdown.value;
+
+    if (!state || !district || !wasteType) {
+      alert("Please select all fields!");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ district, wasteType }) 
+      });
+
+      const data = await response.json();
+      showResults(data);
+    } catch (err) {
+      console.error("Error fetching centers:", err);
+    }
+  });
+
+  function showResults(data) {
+    const resultsDiv = document.getElementById("results");
+    resultsDiv.innerHTML = "";
+if (data.offline && data.offline.length > 0) {
+    const offlineDiv = document.createElement("div");
+    offlineDiv.innerHTML = "<h2 class='text-2xl font-bold mb-2'>Offline Centers</h2>";
+    data.offline.forEach(center => {
+      const card = document.createElement("div");
+      card.className = "border p-4 m-2 rounded-xl shadow-lg bg-white";
+      card.innerHTML = `
+        <h3 class="text-xl font-bold">${center.Name}</h3>
+        <p><b>Address:</b> ${center.address}</p>
+        <p><b>Website:</b> <a href="${center.website}" target="_blank" class="text-blue-500">${center.website}</a></p>
+        <p><b>Contact:</b> ${center.contact}</p>
+      `;
+      offlineDiv.appendChild(card);
+    });
+    resultsDiv.appendChild(offlineDiv);
+  }
+
+  
+  if (data.online && data.online.length > 0) {
+    const onlineDiv = document.createElement("div");
+    onlineDiv.innerHTML = "<h2 class='text-2xl font-bold mb-2'>Online Centers</h2>";
+    data.online.forEach(center => {
+      const card = document.createElement("div");
+      card.className = "border p-4 m-2 rounded-xl shadow-lg bg-white";
+      card.innerHTML = `
+        <h3 class="text-xl font-bold">${center.name}</h3>
+        <p><b>Website:</b> <a href="${center.website}" target="_blank" class="text-blue-500">${center.website}</a></p>
+        <p><b>Contact:</b> ${center.contact}</p>
+      `;
+      onlineDiv.appendChild(card);
+    });
+    resultsDiv.appendChild(onlineDiv);
+  }
+
+  // 🔹 DIY
+  if (data.diy && data.diy.length > 0) {
+    const diyDiv = document.createElement("div");
+    diyDiv.innerHTML = "<h2 class='text-2xl font-bold mb-2'>DIY Tips</h2>";
+    const ul = document.createElement("ul");
+    data.diy.forEach(tip => {
+      const li = document.createElement("li");
+      li.className = "list-disc ml-6";
+      li.textContent = tip;
+      ul.appendChild(li);
+    });
+    diyDiv.appendChild(ul);
+    resultsDiv.appendChild(diyDiv);
+  }
+}
+    
     </script>
 </body>
 </html>

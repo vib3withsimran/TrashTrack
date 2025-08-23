@@ -21,7 +21,7 @@ navlinks.forEach(link => {
   });
 
 
- var typed = new Typed("#typing", {
+ var typed = new typed("#typing", {
     strings: [" Trace. Track. Transform."
     ],
     typeSpeed: 70,
