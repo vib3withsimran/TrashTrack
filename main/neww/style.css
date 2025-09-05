@@ -26,3 +26,6 @@
     background-size: cover;
     background-image: url("https://tint.creativemarket.com/6hRLW4-L_jX9MkNevLrxgNgB6umDVrFSTqA0h7ktcmo/width:1688/height:1126/gravity:nowe/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzg5NC84OTQ0Lzg5NDQ1OTUvc3VzZGV2LW8uanBn");
 }
+#loginSign{
+  filter: hue-rotate(75deg) saturate(1.2) brightness(1.1);
+}

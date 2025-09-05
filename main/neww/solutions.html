@@ -83,16 +83,28 @@
       justify-content: space-evenly;
       align-items: center;
       gap: 20px;
-      padding: 20px;
+      padding: 30px;
       font-size: 18px;
       width: 100%;
-      max-width: 900px;
       background: #ffffff;
       border-radius: 12px;
       box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
       animation: fadeInUp 0.8s ease;
     }
 
+    .state, .district, .waste{
+      display: flex;
+    }
+    .state label, .district label, .waste label{
+      font-size: 1.2em;
+      margin: 5px;
+    }
+    .state select, .district select, .waste select{
+      font-size: 0.8em;
+      margin: auto 10px;
+      width: 250px;
+      
+    }
     label {
       display: block;
       font-weight: 600;
@@ -121,9 +133,9 @@
     button {
       cursor: pointer;
       padding: 12px 35px;
-      background: #facc15;
+      background: #009b77;
       color: #fff;
-      border: 1px solid rgba(0, 0, 0, 0.4);
+      border: 0.1px solid rgba(0, 0, 0, 0.4);
       border-radius: 12px;
       font-size: 16px;
       font-weight: 600;
@@ -293,19 +305,19 @@
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">TrashTrack</div>
-        <ul class="nav-links">
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="./Impact.html">Our Impact</a></li>
-        </ul>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">TrashTrack</div>
+    <ul class="nav-links">
+      <li><a href="./index.html#how">How it Works</a></li>
+      <li><a href="./index.html#features">Features</a></li>
+      <li><a href="#">Documentation</a></li>
+      <li><a href="Impact.html">Our Impact</a></li>
+    </ul>
+    <div class="nav-buttons">
         <a href="./login.html" class="btn">Get Started</a>
-    </nav>
-  </header>
+    </div>
+  </nav>
 
   <main>
     <!-- State Dropdown -->
@@ -342,6 +354,8 @@
         <option value="Glass Waste">Glass Waste</option>
       </select>
     </div>
+
+    <button type="submit">Submit</button>
   </main>
 
   <!-- Solutions -->
@@ -361,9 +375,6 @@
           <div class="solution-item"><i>📍</i> <span><b>WasteWise Solutions</b> - 789 Earth Ave, North East, Delhi</span></div>
         </div>
       </div>
-      <div class="solution-img">
-        <img src="https://i.ibb.co/6sv2jtB/location.png" alt="Location">
-      </div>
     </div>
 
     <!-- Door-to-door -->
@@ -378,9 +389,6 @@
           <div class="solution-item"><i>🚚</i> <span><b>GreenScrap</b> - Recycling made easy with doorstep service.</span></div>
         </div>
       </div>
-      <div class="solution-img">
-        <img src="https://i.ibb.co/f9KcQY0/truck.png" alt="Truck">
-      </div>
     </div>
 
     <!-- Creative Ideas -->
@@ -389,9 +397,6 @@
         <h3>Creative DIY & Reuse Ideas</h3>
         <p>Explore projects to repurpose waste into useful items.</p>
         <button class="btn-secondary">Learn How</button>
-      </div>
-      <div class="solution-img">
-        <img src="https://i.ibb.co/h9FYfCw/lightbulb.png" alt="Lightbulb">
       </div>
     </div>
   </section>
