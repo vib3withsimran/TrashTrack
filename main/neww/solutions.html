@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrashTrack | Solutions</title>
+  <style>
+     * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        color: #04162d;
+        background: #f9fdfb;
+        line-height: 1.6;
+        }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header .logo {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    /* Navbar */
+        .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        }
+
+        .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #009b77;
+        }
+
+        .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        }
+
+        .nav-links a {
+        text-decoration: none;
+        color: #04162d;
+        font-weight: 500;
+        }
+
+        .btn {
+        background: #009b77;
+        color: #fff;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        }
+
+/*main section  */
+
+     main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      font-size: 18px;
+      width: 100%;
+      max-width: 900px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
+      animation: fadeInUp 0.8s ease;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    select {
+      padding: 8px 12px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    select:focus {
+      border-color: #14d96f;
+      box-shadow: 0px 0px 8px rgba(20, 217, 111, 0.3);
+    }
+
+    .btn {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    button {
+      cursor: pointer;
+      padding: 12px 35px;
+      background: #facc15;
+      color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      animation: popIn 0.6s ease;
+    }
+
+    button:hover {
+      background: #eab308;
+      transform: translateY(-3px);
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    button:active {
+      transform: scale(0.96);
+    }
+
+    #results {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #111;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    #results.show {
+      opacity: 1;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Section */
+    .solutions {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .solutions h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .solutions .subtext {
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .solution-category {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      margin-bottom: 60px;
+      gap: 30px;
+    }
+
+    .solution-content h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .solution-content p {
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .solution-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .solution-item {
+      display: flex;
+      align-items: center;
+      background: #f1fdf6;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .solution-item i {
+      font-size: 20px;
+      margin-right: 10px;
+      color: #14d96f;
+    }
+
+    .solution-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 20px rgba(20, 217, 111, 0.2);
+    }
+
+    .solution-img img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border: 1px solid #14d96f;
+      color: #14d96f;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #14d96f;
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 25px;
+      background: #f1fdf6;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      color: #14d96f;
+    }
+
+    /* Animations */
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      transition: all 0.8s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">TrashTrack</div>
+        <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="./Impact.html">Our Impact</a></li>
+        </ul>
+        <a href="./login.html" class="btn">Get Started</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- State Dropdown -->
+    <div class="state">
+      <label for="stateDropdown">State:</label>
+      <select required id="stateDropdown">
+        <option value="">Select State</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Karnataka">Karnataka</option>
+      </select>
+    </div>
+
+    <!-- District Dropdown -->
+    <div class="district">
+      <label for="districtDropdown">District/City:</label>
+      <select required id="districtDropdown">
+        <option value="">Select District</option>
+        <option value="North East Delhi">North East Delhi</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Bengaluru">Bengaluru</option>
+      </select>
+    </div>
+
+    <!-- Waste Type Dropdown -->
+    <div class="waste">
+      <label for="wasteDropdown">Waste Type:</label>
+      <select required id="wasteDropdown">
+        <option value="">Select Waste Type</option>
+        <option value="Organic Waste">Organic Waste</option>
+        <option value="Plastic Waste">Plastic Waste</option>
+        <option value="E-Waste">E-Waste</option>
+        <option value="Paper Waste">Paper Waste</option>
+        <option value="Glass Waste">Glass Waste</option>
+      </select>
+    </div>
+  </main>
+
+  <!-- Solutions -->
+  <section class="solutions">
+    <h2>Showing results for <strong>Plastic in North East, Delhi</strong></h2>
+    <p class="subtext">Your Personalized Waste Solutions</p>
+
+    <!-- Verified Centers -->
+    <div class="solution-category">
+      <div class="solution-content">
+        <h3>Verified Offline Centers</h3>
+        <p>Find local facilities for responsible disposal.</p>
+        <button class="btn-secondary">Get Directions</button>
+        <div class="solution-list">
+          <div class="solution-item"><i>📍</i> <span><b>EcoWaste Center</b> - 123 Green Lane, North East, Delhi</span></div>
+          <div class="solution-item"><i>📍</i> <span><b>GreenCycle Hub</b> - 456 Recycle Road, North East, Delhi</span></div>
+          <div class="solution-item"><i>📍</i> <span><b>WasteWise Solutions</b> - 789 Earth Ave, North East, Delhi</span></div>
+        </div>
+      </div>
+      <div class="solution-img">
+        <img src="https://i.ibb.co/6sv2jtB/location.png" alt="Location">
+      </div>
+    </div>
+
+    <!-- Door-to-door -->
+    <div class="solution-category">
+      <div class="solution-content">
+        <h3>Door-to-Door Pickup</h3>
+        <p>Schedule pickups from your doorstep with online services.</p>
+        <button class="btn-secondary">Visit Website</button>
+        <div class="solution-list">
+          <div class="solution-item"><i>🚚</i> <span><b>ScrapCollect</b> - Convenient pickup service for recyclables.</span></div>
+          <div class="solution-item"><i>🚚</i> <span><b>EcoPickup</b> - Schedule pickups for all types of waste.</span></div>
+          <div class="solution-item"><i>🚚</i> <span><b>GreenScrap</b> - Recycling made easy with doorstep service.</span></div>
+        </div>
+      </div>
+      <div class="solution-img">
+        <img src="https://i.ibb.co/f9KcQY0/truck.png" alt="Truck">
+      </div>
+    </div>
+
+    <!-- Creative Ideas -->
+    <div class="solution-category">
+      <div class="solution-content">
+        <h3>Creative DIY & Reuse Ideas</h3>
+        <p>Explore projects to repurpose waste into useful items.</p>
+        <button class="btn-secondary">Learn How</button>
+      </div>
+      <div class="solution-img">
+        <img src="https://i.ibb.co/h9FYfCw/lightbulb.png" alt="Lightbulb">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <a href="#">How it Works</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </footer>
+
+  <script>
+    // Animate items when scrolled into view
+    const items = document.querySelectorAll(".solution-item");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    items.forEach(item => observer.observe(item));
+
+     const statesData = {
+      "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur"],
+      "Arunachal Pradesh": ["Itanagar", "Tawang", "Pasighat"],
+      "Assam": ["Guwahati", "Dibrugarh", "Silchar"],
+      "Bihar": ["Patna", "Gaya", "Bhagalpur"],
+      "Chhattisgarh": ["Raipur", "Bilaspur", "Durg"],
+      "Goa": ["North Goa", "South Goa"],
+      "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot"],
+      "Haryana": ["Gurgaon", "Faridabad", "Panipat"],
+      "Himachal Pradesh": ["Shimla", "Kullu", "Dharamshala"],
+      "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad"],
+      "Karnataka": ["Bengaluru", "Mysuru", "Mangaluru"],
+      "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode"],
+      "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur"],
+      "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik"],
+      "Manipur": ["Imphal", "Thoubal"],
+      "Meghalaya": ["Shillong", "Tura"],
+      "Mizoram": ["Aizawl", "Lunglei"],
+      "Nagaland": ["Kohima", "Dimapur"],
+      "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela"],
+      "Punjab": ["Amritsar", "Ludhiana", "Jalandhar"],
+      "Rajasthan": ["Jaipur", "Udaipur", "Jodhpur", "Kota"],
+      "Sikkim": ["Gangtok", "Namchi"],
+      "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli"],
+      "Telangana": ["Hyderabad", "Warangal", "Nizamabad"],
+      "Tripura": ["Agartala", "Udaipur"],
+      "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra"],
+      "Uttarakhand": ["Dehradun", "Haridwar", "Nainital"],
+      "West Bengal": ["Kolkata", "Siliguri", "Howrah"],
+      "Delhi": ["North Delhi", "South Delhi", "East Delhi", "West Delhi", "Central Delhi"]
+    };
+
+    const stateDropdown = document.getElementById("stateDropdown");
+    const districtDropdown = document.getElementById("districtDropdown");
+
+    // Populate State Dropdown
+    Object.keys(statesData).forEach(state => {
+      const option = document.createElement("option");
+      option.value = state;
+      option.textContent = state;
+      stateDropdown.appendChild(option);
+    });
+
+    // When state changes → load districts
+    stateDropdown.addEventListener("change", function () {
+      districtDropdown.innerHTML = "<option value=''>Select District</option>";
+      const districts = statesData[this.value] || [];
+      districts.forEach(d => {
+        const opt = document.createElement("option");
+        opt.value = d;
+        opt.textContent = d;
+        districtDropdown.appendChild(opt);
+      });
+    });
+    const wasteDropdown = document.getElementById("wasteDropdown");
+    const submitBtn = document.getElementById("submit-btn");
+
+    submitBtn.addEventListener("click", async () => {
+        const state = stateDropdown.value;
+        const district = districtDropdown.value;
+        const wasteType = wasteDropdown.value;
+
+        if (!state || !district || !wasteType) {
+        alert("Please select all fields!");
+        return;
+        }
+
+        try {
+        const response = await fetch("http://localhost:5000/api/search", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ district, wasteType }) 
+        });
+
+        const data = await response.json();
+        showResults(data);
+        } catch (err) {
+        console.error("Error fetching centers:", err);
+        }
+    });
+
+    function showResults(data) {
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = "";
+    if (data.offline && data.offline.length > 0) {
+        const offlineDiv = document.createElement("div");
+        offlineDiv.innerHTML = "<h2 class='text-2xl font-bold mb-2'>Offline Centers</h2>";
+        data.offline.forEach(center => {
+        const card = document.createElement("div");
+        card.className = "border p-4 m-2 rounded-xl shadow-lg bg-white";
+        card.innerHTML = `
+            <h3 class="text-xl font-bold">${center.Name}</h3>
+            <p><b>Address:</b> ${center.address}</p>
+            <p><b>Website:</b> <a href="${center.website}" target="_blank" class="text-blue-500">${center.website}</a></p>
+            <p><b>Contact:</b> ${center.contact}</p>
+        `;
+        offlineDiv.appendChild(card);
+        });
+        resultsDiv.appendChild(offlineDiv);
+    }
+
+    
+    if (data.online && data.online.length > 0) {
+        const onlineDiv = document.createElement("div");
+        onlineDiv.innerHTML = "<h2 class='text-2xl font-bold mb-2'>Online Centers</h2>";
+        data.online.forEach(center => {
+        const card = document.createElement("div");
+        card.className = "border p-4 m-2 rounded-xl shadow-lg bg-white";
+        card.innerHTML = `
+            <h3 class="text-xl font-bold">${center.name}</h3>
+            <p><b>Website:</b> <a href="${center.website}" target="_blank" class="text-blue-500">${center.website}</a></p>
+            <p><b>Contact:</b> ${center.contact}</p>
+        `;
+        onlineDiv.appendChild(card);
+        });
+        resultsDiv.appendChild(onlineDiv);
+    }
+
+    // 🔹 DIY
+    if (data.diy && data.diy.length > 0) {
+        const diyDiv = document.createElement("div");
+        diyDiv.innerHTML = "<h2 class='text-2xl font-bold mb-2'>DIY Tips</h2>";
+        const ul = document.createElement("ul");
+        data.diy.forEach(tip => {
+        const li = document.createElement("li");
+        li.className = "list-disc ml-6";
+        li.textContent = tip;
+        ul.appendChild(li);
+        });
+        diyDiv.appendChild(ul);
+        resultsDiv.appendChild(diyDiv);
+    }
+    }
+    
+  </script>
+</body>
+</html>

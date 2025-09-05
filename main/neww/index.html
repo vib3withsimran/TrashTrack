@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrashTrack</title>
+</head>
+<body>
+    <style>
+        /* General Reset */
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        color: #04162d;
+        background: #f9fdfb;
+        line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        }
+
+        .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #009b77;
+        }
+
+        .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        }
+
+        .nav-links a {
+        text-decoration: none;
+        color: #04162d;
+        font-weight: 500;
+        }
+
+        .btn {
+        background: #009b77;
+        color: #fff;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+        background: linear-gradient(to bottom, #0dd7b5, #b5efd2);
+        background-image: url(./heroBg.png);
+        text-align: center;
+        padding: 5rem 2rem;
+
+        }
+
+        .hero h1 {
+        font-size: 2.8rem;
+        color: #04162d;
+        margin-bottom: 1rem;
+        }
+
+        .hero p {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        color: #3a3939;
+        }
+
+        .search-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        width: 400px;
+        max-width: 90%;
+        margin: 0 auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        cursor: pointer;
+        }
+
+        .search-box:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+        border: none;
+        outline: none;
+        padding: 0.8rem;
+        flex: 1;
+        }
+
+        .search-box button {
+        background: #00b386;
+        color: #fff;
+        border: none;
+        padding: 0.8rem 1.2rem;
+        cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+        padding: 4rem 2rem;
+        text-align: center;
+        }
+
+        h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #04162d;
+        }
+
+        .steps, .features-grid {
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 30px;
+        }
+
+        .card {
+        background: #fff;
+        padding: 25px ;
+        border-radius: 12px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        transition: transform 0.3s;
+        }
+
+        .card:hover {
+        transform: translateY(-5px);
+        }
+
+        .card h3 {
+        margin-bottom: 0.8rem;
+        color: #009b77;
+        }
+
+        /* Footer */
+        footer {
+        background: #48ab94;
+        color: #fff;
+        text-align: center;
+        padding: 2rem;
+        }
+
+        .footer-links {
+        margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+        color: #fff;
+        margin: 0 1rem;
+        text-decoration: none;
+        }
+
+    </style>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">TrashTrack</div>
+    <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#">Documentation</a></li>
+      <li><a href="./Impact.html">Our Impact</a></li>
+    </ul>
+    <a href="./login.html" class="btn">Get Started</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Turn Your Trash Into Treasure</h1>
+      <p>
+        Discover sustainable waste management solutions tailored to your location. 
+        Join us in making a positive impact on the environment.
+      </p>
+      <div class="search-box" onclick="goToSolutions()">
+        <input type="text" placeholder="Select Your State" readonly>
+        <button>Find Solutions</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="how">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="card">
+        <h3>Enter Your Location</h3>
+        <p>Provide your state and district to find tailored waste management options.</p>
+      </div>
+      <div class="card">
+        <h3>Get Instant Solutions</h3>
+        <p>Receive a list of responsible disposal, repurposing, and pickup services.</p>
+      </div>
+      <div class="card">
+        <h3>Make an Impact</h3>
+        <p>Contribute to a cleaner environment by choosing sustainable practices.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section id="features" class="features">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <div class="card">
+        <h3>Dispose Responsibly</h3>
+        <p>Find certified facilities for proper disposal of various waste types.</p>
+      </div>
+      <div class="card">
+        <h3>Repurpose & Reuse</h3>
+        <p>Discover creative ways to repurpose items and reduce waste.</p>
+      </div>
+      <div class="card">
+        <h3>Schedule a Pickup</h3>
+        <p>Arrange convenient pickup services for your recyclable and non-recyclable waste.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">FAQs</a>
+    </div>
+    <p>© 2023 TrashTrack. All rights reserved.</p>
+  </footer>
+
+  <!-- GSAP -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+</body>
+</html>

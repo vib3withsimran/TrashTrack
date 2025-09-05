@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrashTrack - Our Impact</title>
+</head>
+<body>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        background: #f9fdfb;
+        color: #04162d;
+        line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        }
+
+        .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #009b77;
+        }
+
+        .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        }
+
+        .nav-links a {
+        text-decoration: none;
+        color: #04162d;
+        font-weight: 500;
+        }
+
+        .nav-buttons {
+        display: flex;
+        gap: 1rem;
+        }
+
+        .nav-buttons a{
+            text-decoration: none;
+        }
+
+        .btn {
+        background: #009b77;
+        color: #fff;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        }
+
+        .btn-outline {
+        background: #fff;
+        border: 2px solid #009b77;
+        color: #009b77;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+        background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80")
+            center/cover no-repeat;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        margin: 2rem;
+        position: relative;
+        }
+
+        .hero-overlay {
+        background: rgba(0,0,0,0.4);
+        padding: 4rem 3rem;
+        text-align: center;
+        color: #fff;
+        border-radius: 12px;
+        }
+
+        .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        }
+
+        .hero p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        }
+
+        /* Impact */
+        .impact {
+        text-align: center;
+        padding: 4rem 2rem;
+        }
+
+        .impact h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        }
+
+        .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        }
+
+        .impact-card {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+
+        .impact-card h3 {
+        color: #04162d;
+        margin-bottom: 0.8rem;
+        }
+
+        .number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #009b77;
+        }
+
+        /* Footer */
+        footer {
+        background: #48ab94;
+        color: #fff;
+        text-align: center;
+        padding: 2rem;
+        }
+
+        .footer-links {
+        margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+        color: #fff;
+        margin: 0 1rem;
+        text-decoration: none;
+        }
+
+        /* Testimonials */
+        .testimonials {
+        padding: 4rem 2rem;
+        text-align: center;
+        background: #f3faf7;
+        }
+
+        .testimonials h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        }
+
+        .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        }
+
+        .testimonial-card {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        text-align: left;
+        }
+
+        .testimonial-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        }
+
+        .testimonial-card p {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        color: #444;
+        }
+
+        .author {
+        font-size: 0.9rem;
+        color: #009b77;
+        }
+
+        /* SDGs */
+        .sdg {
+        padding: 4rem 2rem;
+        text-align: center;
+        }
+
+        .sdg h3 {
+        font-size: 1.2rem;
+        color: #04162d;
+        margin-bottom: 0.5rem;
+        }
+
+        .sdg h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        }
+
+        .sdg p {
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        color: #444;
+        }
+
+        .sdg-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        }
+
+        .sdg-card {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        text-align: left;
+        }
+
+        .sdg-card h4 {
+        color: #009b77;
+        margin-bottom: 0.5rem;
+        }
+
+        .cta-section {
+            background-color: #f8fefb;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            }
+
+            .cta-heading {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #111;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+            }
+
+            .cta-text {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+            transition-delay: 0.2s;
+            }
+
+            .cta-btn {
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #009b77;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            transition-delay: 0.4s;
+            }
+
+            .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(20, 217, 111, 0.4);
+            }
+
+            /* Fade-in Animation */
+            .cta-visible .cta-heading,
+            .cta-visible .cta-text,
+            .cta-visible .cta-btn {
+            opacity: 1;
+            transform: translateY(0);
+            }
+
+    </style>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">TrashTrack</div>
+    <ul class="nav-links">
+      <li><a href="./index.html#how">How it Works</a></li>
+      <li><a href="./index.html#features">Features</a></li>
+      <li><a href="#">Documentation</a></li>
+      <li><a href="Impact.html">Our Impact</a></li>
+    </ul>
+    <div class="nav-buttons">
+        <a href="./login.html" class="btn">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Our Collective Green Footprint</h1>
+      <p>Together, we're making a tangible difference in waste management and environmental sustainability.</p>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section id="impact" class="impact">
+    <h2>Our Impact, By the Numbers</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <h3>Waste Diverted from Landfills</h3>
+        <p class="number">15,000+ KG</p>
+      </div>
+      <div class="impact-card">
+        <h3>Community Members Engaged</h3>
+        <p class="number">5,000+</p>
+      </div>
+      <div class="impact-card">
+        <h3>Sustainable Practices Adopted</h3>
+        <p class="number">2,000+</p>
+      </div>
+      <div class="impact-card">
+        <h3>Carbon Emissions Reduced</h3>
+        <p class="number">10,000+ KG</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What Our Users Are Saying</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <img src="https://i.ibb.co/CM8b0Dv/woman1.png" alt="Sarah Miller">
+        <p>"TrashTrack has transformed how our community handles waste. It's not just about recycling; it's about a collective commitment to a cleaner future."</p>
+        <span class="author">Sarah Miller, <em>Community Leader</em></span>
+      </div>
+      <div class="testimonial-card">
+        <img src="https://i.ibb.co/8P0x6xW/man1.png" alt="David Chen">
+        <p>"The platform's impact is clear. We've seen a significant reduction in landfill waste and a rise in community engagement. It's a win-win for everyone."</p>
+        <span class="author">David Chen, <em>Sustainability Coordinator</em></span>
+      </div>
+      <div class="testimonial-card">
+        <img src="https://i.ibb.co/XtNqfpp/woman2.png" alt="Emily Rodriguez">
+        <p>"Being part of TrashTrack has been incredibly rewarding. Knowing that our efforts contribute to a larger environmental goal is truly motivating."</p>
+        <span class="author">Emily Rodriguez, <em>Resident</em></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SDGs Section -->
+  <section class="sdg">
+    <h3>Contributing to a Better World</h3>
+    <h2>Aligned with Sustainable Development Goals</h2>
+    <p>
+      Our work directly supports the United Nations' Sustainable Development Goals (SDGs), particularly SDG 11 (Sustainable Cities and Communities) and SDG 12 (Responsible Consumption and Production). 
+      By promoting responsible waste management, we contribute to creating more sustainable and resilient communities.
+    </p>
+    <div class="sdg-grid">
+      <div class="sdg-card">
+        <h4>🌍 SDG 11: Sustainable Cities and Communities</h4>
+        <p>Making cities inclusive, safe, resilient and sustainable</p>
+      </div>
+      <div class="sdg-card">
+        <h4>♻️ SDG 12: Responsible Consumption and Production</h4>
+        <p>Ensuring sustainable consumption and production patterns</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+    <section class="cta-section">
+    <div class="cta-container">
+        <h2 class="cta-heading">Ready to Make Your Own Impact?</h2>
+        <p class="cta-text">
+        Join our community and start contributing to a more sustainable future today. 
+        It's easy, impactful, and free to begin.
+        </p>
+        <button class="cta-btn">Get Started for Free</button>
+    </div>
+    </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">FAQs</a>
+    </div>
+    <p>© 2023 TrashTrack. All rights reserved.</p>
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    // Navbar & Hero animation
+    gsap.from(".navbar", { y: -100, opacity: 0, duration: 1 });
+    gsap.from(".hero-overlay h1", { y: 50, opacity: 0, duration: 1, delay: 0.3 });
+    gsap.from(".hero-overlay p", { y: 50, opacity: 0, duration: 1, delay: 0.6 });
+
+    // Impact section
+    gsap.from(".impact h2", {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    scrollTrigger: { trigger: ".impact", start: "top 80%" }
+    });
+    gsap.from(".impact-card", {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    stagger: 0.3,
+    scrollTrigger: { trigger: ".impact-grid", start: "top 80%" }
+    });
+
+    // Testimonials section
+    gsap.from(".testimonials h2", {
+    opacity: 0,
+    y: 30,
+    duration: 1,
+    scrollTrigger: { trigger: ".testimonials", start: "top 85%" }
+    });
+    gsap.from(".testimonial-card", {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    stagger: 0.3,
+    scrollTrigger: { trigger: ".testimonial-grid", start: "top 85%" }
+    });
+
+    // SDG section
+    gsap.from(".sdg h2", {
+    opacity: 0,
+    y: 30,
+    duration: 1,
+    scrollTrigger: { trigger: ".sdg", start: "top 85%" }
+    });
+    gsap.from(".sdg-card", {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    stagger: 0.3,
+    scrollTrigger: { trigger: ".sdg-grid", start: "top 85%" }
+    });
+
+    // Footer animation
+    gsap.from("footer", {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    scrollTrigger: { trigger: "footer", start: "top 90%" }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const ctaSection = document.querySelector(".cta-section");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                ctaSection.classList.add("cta-visible");
+            }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(ctaSection);
+        });
+  </script>
+</body>
+</html>
